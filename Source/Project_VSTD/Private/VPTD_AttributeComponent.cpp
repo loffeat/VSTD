@@ -12,6 +12,7 @@ UVPTD_AttributeComponent::UVPTD_AttributeComponent()
 
 	HealthMax = 100;
 	Level = 0;
+	Money = 0;
 
 	Health = HealthMax;
 }
@@ -63,7 +64,17 @@ bool UVPTD_AttributeComponent::ApplyChangeHealth(AActor* Instigator, float delta
 	return true;
 }
 
-bool UVPTD_AttributeComponent::ApplyChangeLevel(float delta)
+bool UVPTD_AttributeComponent::ApplyChangeEXP(AActor* InstigatorActor,int32 Delta)
+{
+	TotalEXP += Delta;
+	Level = TotalEXP / PerLevelEXP;
+
+	OnExpChangedDelegated.Broadcast(InstigatorActor,nullptr,Delta);
+
+	return true;
+}
+
+/*bool UVPTD_AttributeComponent::ApplyChangeLevel(int32 delta)
 {
 	Level += delta;
 
@@ -73,20 +84,20 @@ bool UVPTD_AttributeComponent::ApplyChangeLevel(float delta)
 		APawn* DefaultPlayer = PlayerController->GetCharacter();
 		if (DefaultPlayer != nullptr)
 		{
-			OnLevelChangedDelegated.Broadcast(DefaultPlayer,nullptr,Level,delta);
+			
 		}
 	}
 
 	return true;
-}
+}*/
 
 
-bool UVPTD_AttributeComponent::AddLevel(AActor* player, int32 delta)
+/*bool UVPTD_AttributeComponent::AddLevel(AActor* player, int32 delta)
 {
 	if(player)
 	{
-		ApplyChangeLevel(delta);
+		//ApplyChangeLevel(delta);
 	}
 	return true;
-}
+}*/
 

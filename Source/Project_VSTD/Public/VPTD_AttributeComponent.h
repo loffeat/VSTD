@@ -8,7 +8,9 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnHealthChanged,AActor*,InstigatorActor,UVPTD_AttributeComponent*,OwningComp,float,NewHealth,float,Delta);
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnLevelChanged,AActor*,InstigatorActor,UVPTD_AttributeComponent*,OwningComp,float,NewLevel,float,Delta);
+//DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnLevelChanged,AActor*,InstigatorActor,UVPTD_AttributeComponent*,OwningComp,float,NewLevel,float,Delta);
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnEXPChanged,AActor*,InstigatorActor,UVPTD_AttributeComponent*,OwningComp,int32,Delta);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PROJECT_VSTD_API UVPTD_AttributeComponent : public UActorComponent
@@ -26,8 +28,17 @@ public:
 	float HealthMax;
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="小明属性")
-	int32 Level;	
+	int32 Level;
 
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="小明属性")
+	int32 TotalEXP;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="小明属性")
+	int32 PerLevelEXP;
+	
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="小明属性")
+	int32 Money;
+	
 	UFUNCTION(BlueprintCallable)
 	static UVPTD_AttributeComponent* GetAttributes(AActor* FromActor);
 
@@ -40,18 +51,21 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool ApplyChangeHealth(AActor*Instigator,float delta);
 
+	//UFUNCTION(BlueprintCallable)
+	//bool ApplyChangeLevel(int32 delta);
+
 	UFUNCTION(BlueprintCallable)
-	bool ApplyChangeLevel(float delta);
+	bool ApplyChangeEXP(AActor* InstigatorActor,int32 Delta);
 
 	UPROPERTY(BlueprintAssignable)
 	FOnHealthChanged OnHealthChangedDelegated;
 
 	UPROPERTY(BlueprintAssignable)
-	FOnLevelChanged OnLevelChangedDelegated;
+	FOnEXPChanged OnExpChangedDelegated;
 
 
 public:
 
-	UFUNCTION(Exec)
-	bool AddLevel(AActor* player,int32 delta);
+	/*UFUNCTION(Exec)
+	bool AddLevel(AActor* player,int32 delta);*/
 };

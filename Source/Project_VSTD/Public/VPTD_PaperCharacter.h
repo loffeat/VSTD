@@ -26,4 +26,7 @@ public:
 
 	UFUNCTION()
 	void OnHealthChanged(AActor* InstigatorActor,UVPTD_AttributeComponent* OwningComp,float NewHealth,float Delta);
+
+	UFUNCTION()
+	void OnEXPChanged(AActor* InstigatorActor,UVPTD_AttributeComponent* OwningComp,int32 Delta);
 };
