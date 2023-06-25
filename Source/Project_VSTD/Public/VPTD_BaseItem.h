@@ -12,9 +12,8 @@ class PROJECT_VSTD_API AVPTD_BaseItem : public AActor
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
 	AVPTD_BaseItem();
 
-	UPROPERTY(BlueprintReadWrite,VisibleAnywhere)
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="物品属性")
 	int32 value_exp;
 };
