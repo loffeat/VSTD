@@ -15,4 +15,6 @@ public:
 	
 	AVPTD_ProjectileBase();
 
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	float ProjectileSpeed;
 };
