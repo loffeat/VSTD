@@ -51,9 +51,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool ApplyChangeHealth(AActor*Instigator,float delta);
 
-	//UFUNCTION(BlueprintCallable)
-	//bool ApplyChangeLevel(int32 delta);
-
 	UFUNCTION(BlueprintCallable)
 	bool ApplyChangeEXP(AActor* InstigatorActor,int32 Delta);
 
