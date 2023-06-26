@@ -21,22 +21,22 @@ public:
 	// Sets default values for this component's properties
 	UVPTD_AttributeComponent();
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="小明属性")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="人物属性")
 	float Health;
 	
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="小明属性")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="人物属性")
 	float HealthMax;
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="小明属性")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="人物属性")
 	int32 Level;
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="小明属性")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="人物属性")
 	int32 TotalEXP;
 
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="小明属性")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="人物属性")
 	int32 PerLevelEXP;
 	
-	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="小明属性")
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="人物属性")
 	int32 Money;
 	
 	UFUNCTION(BlueprintCallable)

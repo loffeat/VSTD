@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "VPTD_ProjectileBase.h"
 #include "GameFramework/Actor.h"
 #include "VPTD_BaseTower.generated.h"
 
@@ -14,5 +15,11 @@ class PROJECT_VSTD_API AVPTD_BaseTower : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AVPTD_BaseTower();
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="炮塔属性")
+	TSubclassOf<AVPTD_ProjectileBase> projectile;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="炮塔属性")
+	float Range;
 
 };
