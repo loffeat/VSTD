@@ -25,4 +25,7 @@ public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="炮塔属性")
 	float Timebetween;
 
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="炮塔属性")
+	float MoveWithDis;
+
 };
