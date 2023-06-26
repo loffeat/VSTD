@@ -23,11 +23,9 @@ public:
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	float MoveSpeed;
-
 	
 	UPROPERTY(VisibleAnywhere,BlueprintReadWrite)
 	UVPTD_AttributeComponent* VPTDAttribute;
-
 	
 	UFUNCTION()
 	void OnHealthChanged(AActor* InstigatorActor,UVPTD_AttributeComponent* OwningComp,float NewHealth,float Delta);
