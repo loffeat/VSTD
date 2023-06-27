@@ -8,9 +8,9 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnHealthChanged,AActor*,InstigatorActor,UVPTD_AttributeComponent*,OwningComp,float,NewHealth,float,Delta);
 
-//DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnLevelChanged,AActor*,InstigatorActor,UVPTD_AttributeComponent*,OwningComp,float,NewLevel,float,Delta);
-
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnEXPChanged,AActor*,InstigatorActor,UVPTD_AttributeComponent*,OwningComp,int32,Delta);
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_FourParams(FOnMoneyChanged,AActor*,InstigatorActor,UVPTD_AttributeComponent*,OwningComp,int32,MewMoney,int32,Delta);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class PROJECT_VSTD_API UVPTD_AttributeComponent : public UActorComponent
@@ -48,17 +48,23 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool IsAlive();
 
-	UFUNCTION(BlueprintCallable)
-	bool ApplyChangeHealth(AActor*Instigator,float delta);
-
-	UFUNCTION(BlueprintCallable)
-	bool ApplyChangeEXP(AActor* InstigatorActor,int32 Delta);
-
 	UPROPERTY(BlueprintAssignable)
 	FOnHealthChanged OnHealthChangedDelegated;
 
 	UPROPERTY(BlueprintAssignable)
 	FOnEXPChanged OnExpChangedDelegated;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnMoneyChanged OnMoneyChangedDelegated;
+
+	UFUNCTION(BlueprintCallable)
+	bool ApplyChangeHealth(AActor*Instigator,float Delta);
+    
+	UFUNCTION(BlueprintCallable)
+	bool ApplyChangeEXP(AActor* InstigatorActor,int32 Delta);
+
+	UFUNCTION(BlueprintCallable)
+	bool ApplyChangeMoney(AActor* InstigatorActor,int32 Delta);
 
 
 public:
