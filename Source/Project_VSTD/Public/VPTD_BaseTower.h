@@ -28,4 +28,7 @@ public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="炮塔属性")
 	float MoveWithDis;
 
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="炮塔属性")
+	float TEST;
+
 };
