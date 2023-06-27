@@ -43,13 +43,13 @@ bool UVPTD_AttributeComponent::IsAlive()
 	return Health > 0.0f;
 }
 
-bool UVPTD_AttributeComponent::ApplyChangeHealth(AActor* Instigator, float delta)
+bool UVPTD_AttributeComponent::ApplyChangeHealth(AActor* Instigator, float Delta)
 {
-	Health += delta;
+	Health += Delta;
 	
 	if(Health < 0) Health = 0;
 	
-	OnHealthChangedDelegated.Broadcast(Instigator,nullptr,Health,delta);
+	OnHealthChangedDelegated.Broadcast(Instigator,nullptr,Health,Delta);
 
 	/*//Died
 	if(Health <= 0.0f)
@@ -74,30 +74,12 @@ bool UVPTD_AttributeComponent::ApplyChangeEXP(AActor* InstigatorActor,int32 Delt
 	return true;
 }
 
-/*bool UVPTD_AttributeComponent::ApplyChangeLevel(int32 delta)
+bool UVPTD_AttributeComponent::ApplyChangeMoney(AActor* InstigatorActor, int32 Delta)
 {
-	Level += delta;
+	Money += Delta;
 
-	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController();
-	if (PlayerController != nullptr)
-	{
-		APawn* DefaultPlayer = PlayerController->GetCharacter();
-		if (DefaultPlayer != nullptr)
-		{
-			
-		}
-	}
+	OnMoneyChangedDelegated.Broadcast(InstigatorActor,nullptr,Money,Delta);
 
 	return true;
-}*/
-
-
-/*bool UVPTD_AttributeComponent::AddLevel(AActor* player, int32 delta)
-{
-	if(player)
-	{
-		//ApplyChangeLevel(delta);
-	}
-	return true;
-}*/
+}
 

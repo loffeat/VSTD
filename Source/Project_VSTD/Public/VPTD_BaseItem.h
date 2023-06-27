@@ -16,4 +16,7 @@ public:
 
 	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="物品属性")
 	int32 value_exp;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="物品属性")
+	int32 value_money;
 };
